@@ -25,16 +25,16 @@ tower3.f78d.internal public_host_name=tower3.f78d.example.opentlc.com ssh_host=e
 
 [frontends]
 ## These are the frontends
-frontend1.f78d.internal ssh_host=ec2-13-228-253-56.ap-southeast-1.compute.amazonaws.com
+frontend1.f78d.example.opentlc.com ssh_host=ec2-13-228-253-56.ap-southeast-1.compute.amazonaws.com
 
 [apps]
 ## These are the apps
-app1.f78d.internal ssh_host=ec2-13-229-188-105.ap-southeast-1.compute.amazonaws.com
-app2.f78d.internal ssh_host=ec2-13-228-128-154.ap-southeast-1.compute.amazonaws.com
+app1.f78d.example.opentlc.com ssh_host=ec2-13-229-188-105.ap-southeast-1.compute.amazonaws.com
+app2.f78d.example.opentlc.com ssh_host=ec2-13-228-128-154.ap-southeast-1.compute.amazonaws.com
 
 [appdbs]
 ## These are the appdbs
-appdb1.f78d.internal ssh_host=ec2-13-229-160-165.ap-southeast-1.compute.amazonaws.com
+appdb1.f78d.example.opentlc.com ssh_host=ec2-13-229-160-165.ap-southeast-1.compute.amazonaws.com
 
 [windows]
 ## These are the activedirectory servers
