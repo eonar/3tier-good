@@ -1,0 +1,20 @@
+---
+  - name: webtier - http
+    package:
+      name: httpie
+      state: latest
+  - name: webtier - install HAProxy
+    yum:
+      name=haproxy state=latest
+  - name: webtier - enable HAProxy
+    service:
+      name: haproxy
+      state: started
+  - name: webtier - configure HAProxy
+    template:
+      src: ./haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+  - name: webtier - restart HAproxy
+    service:
+      name: haproxy
+      state: restarted

@@ -1,0 +1,69 @@
+---
+# Bad ansible! This playbook is an example of poor/bad practices!
+# Bad practices may include:
+#
+#   Poor formatting and structure
+#   Poor use of YAML - but good enough to parse
+#   Inconsistent style
+#   Incorrect use of modules
+#   Poor module choice
+#   Unclear names
+#   Hard coding / poor use of variables
+#   Roles - what are roles?
+#   Bare variables
+#   No use of handlers
+
+############################################################
+############################################################
+- name: configuration
+  hosts: all:!windows
+  gather_facts: false # remove later! speeds up testing
+  become: true
+############################################################
+# wikilabs: added role, refers to roles/common/tasks/main.yml
+  roles:
+  - common
+############################################################
+############################################################
+
+
+############################################################
+############################################################
+- name: webtier - deploy haproxy
+  hosts: frontends
+  gather_facts: false # remove later! speeds up testing
+  become: true
+############################################################
+# wikilabs: added role, refers to roles/webtier/tasks/main.yml
+  roles:
+  - webtier
+############################################################
+############################################################
+
+
+############################################################
+############################################################
+- name: apptier - deploy tomcat
+  hosts: apps
+  gather_facts: false
+  become: true
+############################################################
+# wikilabs: added role, refers to roles/apptier/tasks/main.yml
+  roles:
+  - apptier
+############################################################
+############################################################
+
+
+############################################################
+############################################################
+- name: dbtier - deploy postgres
+  gather_facts: false
+  become: true
+  hosts: appdbs
+############################################################
+# wikilabs: added role, refers to roles/apptier/tasks/main.yml
+  roles:
+  - dbtier
+############################################################
+############################################################
